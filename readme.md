@@ -12,7 +12,7 @@ This project is fully dockerized for local development with:
 
 ## 🛠 Prerequisites
 
-- Docker installed (https://docs.docker.com/get-docker/)
+- Docker installed (<https://docs.docker.com/get-docker/>)
 - Docker Compose (if using old Docker versions)
 
 ---
@@ -52,9 +52,9 @@ docker-compose up --build
 
 This will start:
 
-Laravel backend (http://localhost:8000)
+Laravel backend (<http://localhost:8000>)
 
-Vite dev server (http://localhost:5173)
+Vite dev server (<http://localhost:5173>)
 
 MySQL database (localhost:3306)
 
@@ -128,7 +128,3 @@ port: 5173,
 ```
 
 Make sure port 5173 is not blocked or used by another process on your host machine.
-
-```
-
-```
