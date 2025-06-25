@@ -1,4 +1,5 @@
 {
+    "name": "kuroneko",
     "private": true,
     "type": "module",
     "scripts": {
