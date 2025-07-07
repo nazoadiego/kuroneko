@@ -4,7 +4,7 @@ This project is fully dockerized for local development with:
 
 - Laravel (PHP 8.2)
 - Vite (Hot Module Reload for Vue)
-- MySQL 8
+- PostgreSQL 15
 - TailwindCSS
 - Docker Compose
 
@@ -33,12 +33,11 @@ Copy the example .env file:
 
 ✅ Make sure to adjust database credentials if needed.
 
-By default, MySQL credentials:
-
+By default, PostgreSQL credentials:
 ```
-DB_CONNECTION=mysql
+DB_CONNECTION=pgsql
 DB_HOST=db
-DB_PORT=3306
+DB_PORT=5432
 DB_DATABASE=mydb
 DB_USERNAME=user
 DB_PASSWORD=password
@@ -56,7 +55,7 @@ Laravel backend (<http://localhost:8000>)
 
 Vite dev server (<http://localhost:5173>)
 
-MySQL database (localhost:3306)
+PostgreSQL database (<http://localhost:5432>)
 
 4️⃣ Install Laravel dependencies
 Inside the app container:
@@ -95,9 +94,9 @@ Access Laravel container shell
 
 `docker-compose exec app bash`
 
-Access MySQL
+Access PostgreSQL 15
 
-`docker-compose exec db mysql -uuser -ppassword mydb`
+`docker-compose exec db psql -U user -d mydb`
 
 🚀 Production
 This setup is only for local development with hot reload.
