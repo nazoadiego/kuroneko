@@ -1,23 +1,13 @@
-version: "3.8"
-
 services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
     volumes:
       - .:/var/www
-    ports:
-      - "8000:8000"
-    environment:
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_PORT=3306
-      - DB_DATABASE=mydb
-      - DB_USERNAME=user
-      - DB_PASSWORD=password
     depends_on:
       - db
+    ports:
+      - "8000:8000"
 
   vite:
     image: node:20
@@ -27,21 +17,18 @@ services:
     command: sh -c "npm install && npm run dev"
     ports:
       - "5173:5173"
-    depends_on:
-      - app
 
   db:
-    image: mysql:8.0
+    image: postgres:15
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      POSTGRES_DB: mydb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - pg-data:/var/lib/postgresql/data
 
 volumes:
-  mysql-data:
+  pg-data:
